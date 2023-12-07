@@ -4,7 +4,22 @@
 #include <map>
 #include <vector>
 
+/*
+The program parses a log item string into a map of string keys and string_view values. The string_view is a lightweight string type that provides a view into the string without making a copy.
 
+The parse_logitem function takes a log item string as input and returns a map of string keys and string_view values. The function uses the find function to find the position of the '§' character in the string. It then uses the substr function to extract the substring from the start position to the end position. The extracted substring is then added to the map with the corresponding label as the key.
+
+The main function initializes the Google Test framework and runs all the tests.
+
+The ParseLogItemTest class contains a single test case ParseLogItem. This test case creates a log item string, parses it into a map of string keys and string_view values, and then checks that the values in the map match the expected values.
+
+The EXPECT_EQ macro is used to check that the values in the map match the expected values. If the values do not match, the test case fails.
+
+The RUN_ALL_TESTS function runs all the tests and returns the number of failed tests. If all tests pass, it returns 0.
+
+
+
+*/
 std::map<std::string, std::string_view> parse_logitem(const std::string& logItem1) {
     std::map<std::string, std::string_view> parts;
     size_t start = 0;
